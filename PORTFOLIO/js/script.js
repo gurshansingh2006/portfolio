@@ -1,0 +1,150 @@
+console.log("Portfolio Ready");
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelector('.nav-links');
+  const toggle = document.querySelector('.nav-toggle');
+  const typingEl = document.querySelector('.typing');
+  const roles = ['B.Tech IT Student', 'Cybersecurity Enthusiast', 'Python Learner', 'C++ Programmer', 'Linux User'];
+  const terminalLines = [
+    '> initializing system...',
+    '> loading profile...',
+    '> name: Gurshan Singh',
+    '> role: Cybersecurity Enthusiast',
+    '> role: B.Tech IT Student',
+    '> role: Python Learner',
+    '> role: C++ Programmer',
+    '> role: Linux User',
+    '> system ready.'
+  ];
+  const terminalOutput = document.querySelector('#terminal-output');
+  const terminalCursor = document.querySelector('.terminal-cursor');
+  const matrixCanvas = document.querySelector('#matrix-canvas');
+
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+        navLinks?.classList.remove('open');
+      }
+    });
+  });
+
+  // Mobile nav toggle
+  toggle?.addEventListener('click', () => {
+    navLinks?.classList.toggle('open');
+  });
+
+  // Typing animation
+  if (typingEl) {
+    let roleIndex = 0;
+    let charIndex = 0;
+    let erasing = false;
+    const typingSpeed = 90;
+    const pause = 1200;
+
+    const type = () => {
+      const current = roles[roleIndex];
+      if (!erasing) {
+        typingEl.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === current.length) {
+          erasing = true;
+          setTimeout(type, pause);
+          return;
+        }
+      } else {
+        typingEl.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          erasing = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+      }
+      setTimeout(type, typingSpeed);
+    };
+    type();
+  }
+
+  // Terminal intro lines
+  if (terminalOutput) {
+    let lineIndex = 0;
+    const delay = 650;
+    const addLine = () => {
+      if (lineIndex >= terminalLines.length) {
+        terminalCursor?.classList.add('idle');
+        return;
+      }
+      const lineEl = document.createElement('div');
+      lineEl.textContent = terminalLines[lineIndex];
+      terminalOutput.appendChild(lineEl);
+      lineIndex += 1;
+      setTimeout(addLine, delay);
+    };
+    setTimeout(addLine, 400);
+  }
+
+  // Scroll reveal animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
+  );
+
+  const observeReveals = (root = document) => {
+    root.querySelectorAll('.reveal:not(.visible)').forEach((el) => observer.observe(el));
+  };
+
+  observeReveals();
+  window.observeReveals = observeReveals;
+
+  // Matrix rain background
+  if (matrixCanvas) {
+    const ctx = matrixCanvas.getContext('2d');
+    let width = matrixCanvas.clientWidth;
+    let height = matrixCanvas.clientHeight;
+    matrixCanvas.width = width;
+    matrixCanvas.height = height;
+
+    const fontSize = 16;
+    const columns = () => Math.floor(width / fontSize);
+    let drops = Array(columns()).fill(1);
+    const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    const resize = () => {
+      width = matrixCanvas.clientWidth;
+      height = matrixCanvas.clientHeight;
+      matrixCanvas.width = width;
+      matrixCanvas.height = height;
+      drops = Array(columns()).fill(1);
+    };
+
+    window.addEventListener('resize', resize);
+
+    const draw = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = '#00ff9c';
+      ctx.font = `${fontSize}px 'SFMono-Regular', monospace`;
+
+      drops.forEach((y, i) => {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        const x = i * fontSize;
+        ctx.fillText(text, x, y * fontSize);
+        drops[i] = y * fontSize > height && Math.random() > 0.975 ? 0 : y + 1;
+      });
+      requestAnimationFrame(draw);
+    };
+
+    draw();
+  }
+});

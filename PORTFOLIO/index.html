@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gurshan Singh | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="home">
+  <header class="navbar">
+    <div class="nav-brand">GS</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#journey">Journey</a>
+      <a href="blog.html">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero reveal slide-up" id="hero">
+      <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+      <div class="hero-text">
+        <p class="eyebrow">Hello, I'm</p>
+        <h1>Gurshan Singh</h1>
+        <h2>I'm <span class="typing" aria-live="polite"></span></h2>
+        <p class="hero-desc">I build projects, learn systems, and explore technology.</p>
+        <div class="cta-group">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Contact Me</a>
+        </div>
+        <div class="terminal" aria-live="polite">
+          <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">~/cyber/intro.sh</span>
+          </div>
+          <div class="terminal-body">
+            <div id="terminal-output"></div><span class="terminal-cursor" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <div class="grid" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="about">
+      <div class="section-header">
+        <p class="eyebrow">About</p>
+        <h3>Curious mind, code-first approach.</h3>
+        <p class="section-desc">Focused on building reliable software, experimenting with systems, and sharing what I learn.</p>
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="skills">
+      <div class="section-header">
+        <p class="eyebrow">Skills & Tools</p>
+        <h3>Focused on security-minded development</h3>
+      </div>
+      <div class="skills-grid grouped">
+        <div class="skill-card">
+          <h4>Languages</h4>
+          <div class="chip-row">
+            <span class="chip">Python</span>
+            <span class="chip">C++</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h4>Tools</h4>
+          <div class="chip-row">
+            <span class="chip">Linux</span>
+            <span class="chip">VS Code</span>
+            <span class="chip">OpenAI Codex</span>
+            <span class="chip">Git</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h4>Technologies</h4>
+          <div class="chip-row">
+            <span class="chip">Cybersecurity</span>
+            <span class="chip">Web Fundamentals</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="learning">
+      <div class="section-header">
+        <p class="eyebrow">Currently Learning</p>
+        <h3>Sharpening fundamentals every day</h3>
+        <ul class="learning-list">
+          <li>Python programming</li>
+          <li>C++ fundamentals</li>
+          <li>Cybersecurity basics</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="cyber-tools">
+      <div class="section-header">
+        <p class="eyebrow">Cybersecurity Tools</p>
+        <h3>Stack I'm using and exploring</h3>
+      </div>
+      <div class="tools-grid">
+        <article class="tool-card">
+          <h4>Programming</h4>
+          <div class="chip-row">
+            <span class="chip">Python</span>
+            <span class="chip">C++</span>
+          </div>
+        </article>
+        <article class="tool-card">
+          <h4>Operating System</h4>
+          <div class="chip-row">
+            <span class="chip">Linux</span>
+          </div>
+        </article>
+        <article class="tool-card">
+          <h4>Development Tools</h4>
+          <div class="chip-row">
+            <span class="chip">VS Code</span>
+            <span class="chip">OpenAI Codex</span>
+            <span class="chip">Git</span>
+          </div>
+        </article>
+        <article class="tool-card">
+          <h4>Cybersecurity Interest Areas</h4>
+          <div class="chip-row">
+            <span class="chip">Network Security</span>
+            <span class="chip">Ethical Hacking</span>
+            <span class="chip">System Security</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="projects">
+      <div class="section-header">
+        <p class="eyebrow">Projects</p>
+        <h3>Recent work</h3>
+      </div>
+      <div class="projects-grid" id="projects-grid">
+        <p class="muted">Projects will appear here as I continue building and learning.</p>
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="github-activity">
+      <div class="section-header">
+        <p class="eyebrow">GitHub Activity</p>
+        <h3>Contribution Graph</h3>
+      </div>
+      <div class="github-chart">
+        <img src="https://ghchart.rshah.org/gurshansingh2006" alt="GitHub contribution graph for gurshansingh2006">
+      </div>
+    </section>
+
+    <section class="section reveal slide-up" id="journey">
+      <div class="section-header">
+        <p class="eyebrow">Developer Journey</p>
+        <h3>Milestones on my path</h3>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div>
+            <p class="timeline-year">2023</p>
+            <p class="timeline-desc">Completed Matriculation.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div>
+            <p class="timeline-year">2025</p>
+            <p class="timeline-desc">Completed 12th.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div>
+            <p class="timeline-year">2025 – 2029</p>
+            <p class="timeline-desc">B.Tech in Information Technology<br>Guru Nanak Dev Engineering College, Ludhiana.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot future"></div>
+          <div>
+            <p class="timeline-year">Future</p>
+            <p class="timeline-desc">Internship and advanced cybersecurity projects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact reveal slide-up" id="contact">
+      <div class="contact-card">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h3>Let’s build something together</h3>
+          <p class="section-desc">Reach out for collaborations, internships, or just to say hello.</p>
+          <div class="contact-details">
+            <span>📞 +91 7009115802</span>
+            <span>✉️ <a href="mailto:khalsa12975@gmail.com">khalsa12975@gmail.com</a></span>
+            <span>🔗 <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></span>
+          </div>
+        </div>
+        <a class="btn primary" href="mailto:khalsa12975@gmail.com">Email Me</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Gurshan Singh</p>
+    <div class="footer-links">
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="js/projects.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>

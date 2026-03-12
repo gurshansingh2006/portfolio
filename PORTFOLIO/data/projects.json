@@ -1,0 +1,20 @@
+[
+  {
+    "title": "StudentCorner",
+    "description": "A student productivity web application with notes, tasks, and reminders.",
+    "tech": "HTML · CSS · JavaScript",
+    "github_link": "https://github.com/your-username/studentcorner"
+  },
+  {
+    "title": "Systems Monitor",
+    "description": "Lightweight dashboard to track CPU, memory, and process health.",
+    "tech": "Python · FastAPI · Tailwind",
+    "github_link": "https://github.com/your-username/systems-monitor"
+  },
+  {
+    "title": "CLI Toolkit",
+    "description": "Collection of command-line helpers for everyday automation.",
+    "tech": "C++ · Bash · Git",
+    "github_link": "https://github.com/your-username/cli-toolkit"
+  }
+]
