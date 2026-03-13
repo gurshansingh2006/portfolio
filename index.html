@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body id="home">
+  <canvas id="matrix-bg" aria-hidden="true"></canvas>
   <header class="navbar">
     <div class="nav-brand">GS</div>
     <nav class="nav-links">
@@ -25,31 +26,31 @@
   <main>
     <section class="hero reveal slide-up" id="hero">
       <canvas id="matrix-canvas" aria-hidden="true"></canvas>
-      <div class="hero-text">
-        <p class="eyebrow">Hello, I'm</p>
-        <h1>Gurshan Singh</h1>
-        <h2>I'm <span class="typing" aria-live="polite"></span></h2>
-        <p class="hero-desc">I build projects, learn systems, and explore technology.</p>
-        <div class="cta-group">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn ghost" href="#contact">Contact Me</a>
-        </div>
-        <div class="terminal" aria-live="polite">
-          <div class="terminal-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="terminal-title">~/cyber/intro.sh</span>
-          </div>
-          <div class="terminal-body">
-            <div id="terminal-output"></div><span class="terminal-cursor" aria-hidden="true"></span>
+      <div class="hero-overlay"></div>
+      <div class="hero-container">
+        <div class="hero-left">
+          <p class="eyebrow">Hello, I'm</p>
+          <h1>Gurshan Singh</h1>
+          <h2>I'm <span class="typing" aria-live="polite"></span></h2>
+          <p class="hero-desc">I build projects, learn systems, and explore technology.</p>
+          <div class="cta-group">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact">Contact Me</a>
           </div>
         </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="orb orb-a"></div>
-        <div class="orb orb-b"></div>
-        <div class="grid" aria-hidden="true"></div>
+        <div class="hero-right">
+          <div class="terminal" aria-live="polite">
+            <div class="terminal-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="terminal-title">~/cyber/intro.sh</span>
+            </div>
+            <div class="terminal-body">
+              <div id="terminal-output"></div><span class="terminal-cursor" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -105,6 +106,45 @@
       </div>
     </section>
 
+    <section class="section reveal fade" id="skills-progress">
+      <div class="section-header">
+        <p class="eyebrow">Skills</p>
+        <h3>Progress so far</h3>
+      </div>
+      <div class="progress-grid">
+        <div class="progress-item">
+          <div class="progress-label">
+            <span>Python</span><span>70%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" data-target="70"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label">
+            <span>C++</span><span>60%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" data-target="60"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label">
+            <span>Linux</span><span>75%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" data-target="75"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label">
+            <span>Cybersecurity</span><span>50%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" data-target="50"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label">
+            <span>Web Development</span><span>65%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" data-target="65"></div></div>
+        </div>
+      </div>
+    </section>
+
     <section class="section reveal fade" id="cyber-tools">
       <div class="section-header">
         <p class="eyebrow">Cybersecurity Tools</p>
@@ -143,6 +183,143 @@
       </div>
     </section>
 
+    <section class="section reveal fade" id="tools-i-use">
+      <div class="section-header">
+        <p class="eyebrow">Tools I Use</p>
+        <h3>Everyday utilities and platforms</h3>
+      </div>
+      <div class="tools-grid cards">
+        <article class="tool-card icon-card">
+          <div class="tool-icon">🐧</div>
+          <div>
+            <h4>Linux</h4>
+            <p class="tool-desc">My primary development environment.</p>
+          </div>
+        </article>
+        <article class="tool-card icon-card">
+          <div class="tool-icon">🐍</div>
+          <div>
+            <h4>Python</h4>
+            <p class="tool-desc">For scripting, automation, and quick prototypes.</p>
+          </div>
+        </article>
+        <article class="tool-card icon-card">
+          <div class="tool-icon">⚙️</div>
+          <div>
+            <h4>C++</h4>
+            <p class="tool-desc">For performant, system-level problem solving.</p>
+          </div>
+        </article>
+        <article class="tool-card icon-card">
+          <div class="tool-icon">🔧</div>
+          <div>
+            <h4>Git</h4>
+            <p class="tool-desc">Version control and collaboration.</p>
+          </div>
+        </article>
+        <article class="tool-card icon-card">
+          <div class="tool-icon">🛰️</div>
+          <div>
+            <h4>Nmap</h4>
+            <p class="tool-desc">Network scanning and reconnaissance practice.</p>
+          </div>
+        </article>
+        <article class="tool-card icon-card">
+          <div class="tool-icon">📡</div>
+          <div>
+            <h4>Wireshark</h4>
+            <p class="tool-desc">Packet analysis to understand traffic flows.</p>
+          </div>
+        </article>
+        <article class="tool-card icon-card">
+          <div class="tool-icon">🖥️</div>
+          <div>
+            <h4>VS Code</h4>
+            <p class="tool-desc">Lightweight editor with extensions for everything.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="network-scan">
+      <div class="section-header">
+        <p class="eyebrow">Network Scanner Demo</p>
+        <h3>Simulated scan output</h3>
+      </div>
+      <div class="scan-card">
+        <button class="btn primary" id="run-scan">Run Network Scan</button>
+        <div class="scan-terminal" id="scan-output" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="cyber-journey">
+      <div class="section-header">
+        <p class="eyebrow">My Cybersecurity Journey</p>
+        <h3>Milestones</h3>
+      </div>
+      <div class="journey-timeline">
+        <div class="journey-item">
+          <div class="journey-dot"></div>
+          <div class="journey-text">
+            <p class="journey-year">2023</p>
+            <p class="journey-desc">Completed Matriculation</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-dot"></div>
+          <div class="journey-text">
+            <p class="journey-year">2025</p>
+            <p class="journey-desc">Completed 12th</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-dot"></div>
+          <div class="journey-text">
+            <p class="journey-year">2025</p>
+            <p class="journey-desc">Started B.Tech IT at GNDEC Ludhiana</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-dot"></div>
+          <div class="journey-text">
+            <p class="journey-year">2026</p>
+            <p class="journey-desc">Learning Python and Linux</p>
+          </div>
+        </div>
+        <div class="journey-item future">
+          <div class="journey-dot"></div>
+          <div class="journey-text">
+            <p class="journey-year">Future</p>
+            <p class="journey-desc">Building cybersecurity projects</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="learning-blog">
+      <div class="section-header">
+        <p class="eyebrow">Learning Blog</p>
+        <h3>Sharing what I'm learning</h3>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <h4>My Journey Into Linux</h4>
+          <p class="blog-desc">From first boot to customizing the shell—notes on how Linux became my daily driver.</p>
+          <a class="blog-link" href="#" aria-label="Read more about My Journey Into Linux">Read more →</a>
+        </article>
+        <article class="blog-card">
+          <h4>How I Started Learning Python</h4>
+          <p class="blog-desc">Why I picked Python, resources I used, and small scripts that helped me practice.</p>
+          <a class="blog-link" href="#" aria-label="Read more about How I Started Learning Python">Read more →</a>
+        </article>
+        <article class="blog-card">
+          <h4>Understanding Basic Networking</h4>
+          <p class="blog-desc">Breaking down IPs, ports, and protocols—foundations for security and troubleshooting.</p>
+          <a class="blog-link" href="#" aria-label="Read more about Understanding Basic Networking">Read more →</a>
+        </article>
+      </div>
+    </section>
+
     <section class="section reveal fade" id="projects">
       <div class="section-header">
         <p class="eyebrow">Projects</p>
@@ -160,6 +337,20 @@
       </div>
       <div class="github-chart">
         <img src="https://ghchart.rshah.org/gurshansingh2006" alt="GitHub contribution graph for gurshansingh2006">
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="cyber-terminal">
+      <div class="section-header">
+        <p class="eyebrow">Cyber Terminal</p>
+        <h3>Type a command to learn more</h3>
+      </div>
+      <div class="cyber-terminal">
+        <div id="terminal-screen" class="terminal-screen" aria-live="polite"></div>
+        <form id="terminal-form" class="terminal-input-row" autocomplete="off">
+          <span class="prompt">visitor@portfolio:~$</span>
+          <input id="terminal-input" type="text" name="command" aria-label="Terminal input" autofocus />
+        </form>
       </div>
     </section>
 
@@ -225,7 +416,9 @@
     </div>
   </footer>
 
+  <script src="js/matrix.js" defer></script>
   <script src="js/projects.js" defer></script>
   <script src="js/script.js" defer></script>
+  <div id="cursor"></div>
 </body>
 </html>

@@ -46,7 +46,7 @@ const loadGitHubProjects = async () => {
     }
   } catch (err) {
     console.error('Failed to load GitHub repos', err);
-    projectsContainer.innerHTML = '<p class="muted">Unable to load GitHub projects.</p>';
+    projectsContainer.innerHTML = '<p class="muted">Unable to load projects right now.</p>';
   }
 };
 

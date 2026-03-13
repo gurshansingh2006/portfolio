@@ -19,6 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const terminalOutput = document.querySelector('#terminal-output');
   const terminalCursor = document.querySelector('.terminal-cursor');
   const matrixCanvas = document.querySelector('#matrix-canvas');
+  const terminalForm = document.querySelector('#terminal-form');
+  const terminalInput = document.querySelector('#terminal-input');
+  const terminalScreen = document.querySelector('#terminal-screen');
+  const progressFills = document.querySelectorAll('.progress-fill');
+  const scanButton = document.querySelector('#run-scan');
+  const scanOutput = document.querySelector('#scan-output');
+  const cursorEl = document.querySelector('#cursor');
 
   // Smooth scroll for internal links
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -107,6 +114,109 @@ document.addEventListener('DOMContentLoaded', () => {
   observeReveals();
   window.observeReveals = observeReveals;
 
+  // Animate skill progress bars on reveal
+  if (progressFills.length) {
+    const barObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target.dataset.target;
+            entry.target.style.width = `${target}%`;
+            barObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    progressFills.forEach((bar) => barObserver.observe(bar));
+  }
+
+  // Network scanner demo
+  if (scanButton && scanOutput) {
+    const scanLines = [
+      'Scanning network...',
+      '192.168.1.1 open',
+      '192.168.1.3 closed',
+      '192.168.1.7 open',
+      '192.168.1.9 filtered'
+    ];
+
+    const runScan = () => {
+      scanOutput.textContent = '';
+      scanButton.disabled = true;
+      scanButton.textContent = 'Scanning...';
+
+      scanLines.forEach((line, idx) => {
+        setTimeout(() => {
+          scanOutput.textContent += `${line}\\n`;
+          scanOutput.scrollTop = scanOutput.scrollHeight;
+          if (idx === scanLines.length - 1) {
+            scanButton.disabled = false;
+            scanButton.textContent = 'Run Network Scan';
+          }
+        }, idx * 600);
+      });
+    };
+
+    scanButton.addEventListener('click', runScan);
+  }
+
+  // Interactive cyber terminal
+  if (terminalForm && terminalInput && terminalScreen) {
+    const commands = {
+      help: [
+        'Available commands:',
+        'help, whoami, skills, projects, contact, about, education, github, linkedin, experience, clear'
+      ],
+      whoami: ['Gurshan Singh — B.Tech IT student and cybersecurity enthusiast.'],
+      about: [
+        'Gurshan Singh — B.Tech IT student at GNDEC Ludhiana and cybersecurity enthusiast. I enjoy learning Linux, programming, and exploring security concepts.'
+      ],
+      education: [
+        '2023 – Matriculation',
+        '2025 – 12th',
+        '2025–2029 – B.Tech IT at GNDEC Ludhiana'
+      ],
+      github: ['https://github.com/gurshansingh2006'],
+      linkedin: ['Visit my LinkedIn profile.'],
+      experience: ['Currently building projects and learning cybersecurity tools.'],
+      skills: ['Python', 'C++', 'Linux', 'Git', 'Cybersecurity fundamentals'],
+      projects: ['Projects are automatically loaded from my GitHub repositories.'],
+      contact: ['Phone: +91 7009115802', 'Email: khalsa12975@gmail.com']
+    };
+
+    const printLine = (text, isCommand = false) => {
+      const line = document.createElement('div');
+      line.className = 'terminal-line';
+      line.textContent = isCommand ? `visitor@portfolio:~$ ${text}` : text;
+      terminalScreen.appendChild(line);
+      terminalScreen.scrollTop = terminalScreen.scrollHeight;
+    };
+
+    terminalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = terminalInput.value.trim();
+      if (!input) return;
+
+      printLine(input, true);
+
+      if (input === 'clear') {
+        terminalScreen.innerHTML = '';
+        terminalInput.value = '';
+        return;
+      }
+
+      const output = commands[input];
+      if (output) {
+        output.forEach((line) => printLine(line));
+      } else {
+        printLine(`Command not found: ${input}. Type "help" for options.`);
+      }
+
+      terminalInput.value = '';
+    });
+  }
+
   // Matrix rain background
   if (matrixCanvas) {
     const ctx = matrixCanvas.getContext('2d');
@@ -146,5 +256,34 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     draw();
+  }
+
+  // Custom hacker cursor
+  if (cursorEl) {
+    let x = -100;
+    let y = -100;
+    let hover = false;
+
+    const render = () => {
+      cursorEl.style.setProperty('--cx', `${x}px`);
+      cursorEl.style.setProperty('--cy', `${y}px`);
+      cursorEl.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${hover ? 1.15 : 1})`;
+      requestAnimationFrame(render);
+    };
+
+    document.addEventListener('mousemove', (e) => {
+      x = e.clientX;
+      y = e.clientY;
+    });
+
+    const hoverTargets = 'a, button, .btn';
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(hoverTargets)) hover = true;
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(hoverTargets)) hover = false;
+    });
+
+    render();
   }
 });
