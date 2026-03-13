@@ -1,5 +1,9 @@
 console.log("Portfolio Ready");
 
+window.onload = function() {
+  window.scrollTo(0, 0);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelector('.nav-links');
   const toggle = document.querySelector('.nav-toggle');
@@ -25,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressFills = document.querySelectorAll('.progress-fill');
   const scanButton = document.querySelector('#run-scan');
   const scanOutput = document.querySelector('#scan-output');
-  const cursorEl = document.querySelector('#cursor');
 
   // Smooth scroll for internal links
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -258,32 +261,4 @@ document.addEventListener('DOMContentLoaded', () => {
     draw();
   }
 
-  // Custom hacker cursor
-  if (cursorEl) {
-    let x = -100;
-    let y = -100;
-    let hover = false;
-
-    const render = () => {
-      cursorEl.style.setProperty('--cx', `${x}px`);
-      cursorEl.style.setProperty('--cy', `${y}px`);
-      cursorEl.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${hover ? 1.15 : 1})`;
-      requestAnimationFrame(render);
-    };
-
-    document.addEventListener('mousemove', (e) => {
-      x = e.clientX;
-      y = e.clientY;
-    });
-
-    const hoverTargets = 'a, button, .btn';
-    document.addEventListener('mouseover', (e) => {
-      if (e.target.closest(hoverTargets)) hover = true;
-    });
-    document.addEventListener('mouseout', (e) => {
-      if (e.target.closest(hoverTargets)) hover = false;
-    });
-
-    render();
-  }
 });
