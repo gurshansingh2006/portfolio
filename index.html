@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gurshan Singh | Portfolio</title>
+  <title>Gurshan Singh | Cybersecurity Portfolio</title>
+  <meta name="description" content="Portfolio of Gurshan Singh, B.Tech IT student and aspiring cybersecurity engineer. Showcasing projects, skills, and learning journey.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Gurshan Singh">
+  <meta name="keywords" content="Gurshan Singh, cybersecurity portfolio, B.Tech IT, GNDEC Ludhiana, cybersecurity, Linux, Python, C++, projects, skills">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body id="home">
@@ -14,7 +18,7 @@
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#journey">Journey</a>
+      <a href="#learning-journey">Journey</a>
       <a href="blog.html">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -29,13 +33,23 @@
       <div class="hero-overlay"></div>
       <div class="hero-container">
         <div class="hero-left">
-          <p class="eyebrow">Hello, I'm</p>
-          <h1>Gurshan Singh</h1>
-          <h2>I'm <span class="typing" aria-live="polite"></span></h2>
-          <p class="hero-desc">I build projects, learn systems, and explore technology.</p>
+          <div class="hero-id">
+            <img class="profile-img" src="https://via.placeholder.com/96" alt="Profile placeholder">
+            <div>
+              <p class="eyebrow">Hello, I'm</p>
+              <h1>Gurshan Singh</h1>
+              <h2>B.Tech IT Student | Aspiring Cybersecurity Engineer</h2>
+            </div>
+          </div>
+          <p class="hero-desc">Passionate about cybersecurity, Linux, and building practical tech projects while studying at GNDEC Ludhiana.</p>
           <div class="cta-group">
             <a class="btn primary" href="#projects">View Projects</a>
             <a class="btn ghost" href="#contact">Contact Me</a>
+          </div>
+          <div class="social-buttons">
+            <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn ghost" href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn primary" href="mailto:khalsa12975@gmail.com">Contact</a>
           </div>
         </div>
         <div class="hero-right">
@@ -241,10 +255,84 @@
       </div>
     </section>
 
-    <section class="section reveal fade" id="network-scan">
+    <section class="section reveal fade" id="tools-technologies">
       <div class="section-header">
-        <p class="eyebrow">Network Scanner Demo</p>
-        <h3>Simulated scan output</h3>
+        <p class="eyebrow">Tools & Technologies</p>
+        <h3>Core stack I work with</h3>
+      </div>
+      <div class="tools-grid cards">
+        <article class="tool-card icon-card">
+          <div class="tool-icon">🐧</div>
+          <div>
+            <h4>Linux</h4>
+            <p class="tool-desc">My primary development environment.</p>
+          </div>
+        </article>
+        <article class="tool-card icon-card">
+          <div class="tool-icon">🐍</div>
+          <div>
+            <h4>Python</h4>
+            <p class="tool-desc">For scripting, automation, and quick prototypes.</p>
+          </div>
+        </article>
+        <article class="tool-card icon-card">
+          <div class="tool-icon">⚙️</div>
+          <div>
+            <h4>C++</h4>
+            <p class="tool-desc">For efficient, system-level programming.</p>
+          </div>
+        </article>
+        <article class="tool-card icon-card">
+          <div class="tool-icon">🔧</div>
+          <div>
+            <h4>Git</h4>
+            <p class="tool-desc">Version control for clean, trackable progress.</p>
+          </div>
+        </article>
+        <article class="tool-card icon-card">
+          <div class="tool-icon">🖥️</div>
+          <div>
+            <h4>VS Code</h4>
+            <p class="tool-desc">A fast editor with the extensions I rely on.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal fade" id="cyber-lab">
+      <div class="section-header">
+        <p class="eyebrow">Cyber Lab</p>
+        <h3>Cybersecurity projects and experiments</h3>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-meta">
+            <h4>Password Strength Checker</h4>
+            <p>Evaluates password strength with security best practices and feedback.</p>
+          </div>
+          <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
+        </article>
+        <article class="project-card">
+          <div class="project-meta">
+            <h4>Port Scanner</h4>
+            <p>Scans target ports to identify open services and potential exposures.</p>
+          </div>
+          <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
+        </article>
+        <article class="project-card">
+          <div class="project-meta">
+            <h4>Network Monitor</h4>
+            <p>Monitors traffic activity and summarizes network behavior.</p>
+          </div>
+          <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
+        </article>
+        <article class="project-card">
+          <div class="project-meta">
+            <h4>Encryption Tool</h4>
+            <p>Encrypts and decrypts data using standard cryptographic workflows.</p>
+          </div>
+          <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
+        </article>
       </div>
       <div class="scan-card">
         <button class="btn primary" id="run-scan">Run Network Scan</button>
@@ -252,10 +340,10 @@
       </div>
     </section>
 
-    <section class="section reveal fade" id="cyber-journey">
+    <section class="section reveal fade" id="learning-journey">
       <div class="section-header">
-        <p class="eyebrow">My Cybersecurity Journey</p>
-        <h3>Milestones</h3>
+        <p class="eyebrow">My Learning Journey</p>
+        <h3>Milestones in cybersecurity and IT</h3>
       </div>
       <div class="journey-timeline">
         <div class="journey-item">
@@ -282,15 +370,15 @@
         <div class="journey-item">
           <div class="journey-dot"></div>
           <div class="journey-text">
-            <p class="journey-year">2026</p>
-            <p class="journey-desc">Learning Python and Linux</p>
+            <p class="journey-year">2025</p>
+            <p class="journey-desc">Learning Python and C++</p>
           </div>
         </div>
         <div class="journey-item future">
           <div class="journey-dot"></div>
           <div class="journey-text">
             <p class="journey-year">Future</p>
-            <p class="journey-desc">Building cybersecurity projects</p>
+            <p class="journey-desc">Cybersecurity specialization</p>
           </div>
         </div>
       </div>
@@ -332,7 +420,7 @@
 
     <section class="section reveal fade" id="github-activity">
       <div class="section-header">
-        <p class="eyebrow">GitHub Activity</p>
+        <p class="eyebrow">GITHUB ACTIVITY</p>
         <h3>Contribution Graph</h3>
       </div>
       <div class="github-chart">
@@ -340,12 +428,9 @@
       </div>
     </section>
 
-    <section class="section reveal fade" id="cyber-terminal">
-      <div class="section-header">
-        <p class="eyebrow">Cyber Terminal</p>
-        <h3>Type a command to learn more</h3>
-      </div>
+    <section class="section" id="cyber-terminal">
       <div class="cyber-terminal">
+        <div class="bot-title">GS_BOT</div>
         <div id="terminal-screen" class="terminal-screen" aria-live="polite"></div>
         <form id="terminal-form" class="terminal-input-row" autocomplete="off">
           <span class="prompt">visitor@portfolio:~$</span>

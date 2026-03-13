@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const commands = {
       help: [
         'Available commands:',
-        'help, whoami, skills, projects, contact, about, education, github, linkedin, experience, clear'
+        'help, whoami, skills, projects, tools, journey, github, contact, about, education, linkedin, experience, clear'
       ],
       whoami: ['Gurshan Singh — B.Tech IT student and cybersecurity enthusiast.'],
       about: [
@@ -180,12 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
         '2025 – 12th',
         '2025–2029 – B.Tech IT at GNDEC Ludhiana'
       ],
-      github: ['https://github.com/gurshansingh2006'],
       linkedin: ['Visit my LinkedIn profile.'],
       experience: ['Currently building projects and learning cybersecurity tools.'],
       skills: ['Python', 'C++', 'Linux', 'Git', 'Cybersecurity fundamentals'],
-      projects: ['Projects are automatically loaded from my GitHub repositories.'],
-      contact: ['Phone: +91 7009115802', 'Email: khalsa12975@gmail.com']
+      projects: ['Projects are automatically loaded from my GitHub repositories.']
     };
 
     const printLine = (text, isCommand = false) => {
@@ -194,6 +192,19 @@ document.addEventListener('DOMContentLoaded', () => {
       line.textContent = isCommand ? `visitor@portfolio:~$ ${text}` : text;
       terminalScreen.appendChild(line);
       terminalScreen.scrollTop = terminalScreen.scrollHeight;
+    };
+
+    const scrollToSection = (selector) => {
+      const target = document.querySelector(selector);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const navActions = {
+      projects: () => scrollToSection('#projects'),
+      tools: () => scrollToSection('#tools-technologies'),
+      journey: () => scrollToSection('#learning-journey'),
+      contact: () => scrollToSection('#contact'),
+      github: () => window.open('https://github.com/gurshansingh2006', '_blank', 'noopener')
     };
 
     terminalForm.addEventListener('submit', (e) => {
@@ -205,6 +216,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (input === 'clear') {
         terminalScreen.innerHTML = '';
+        terminalInput.value = '';
+        return;
+      }
+
+      if (navActions[input]) {
+        if (input === 'github') {
+          printLine('Opening GitHub profile...');
+        } else {
+          printLine(`Navigating to ${input}...`);
+        }
+        navActions[input]();
         terminalInput.value = '';
         return;
       }
