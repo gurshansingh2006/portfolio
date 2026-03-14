@@ -1,6 +1,6 @@
 const githubUsername = "gurshansingh2006";
-const projectsContainer = document.querySelector('#projects-grid');
-const projectsSection = document.querySelector('#projects');
+const projectsContainer = document.querySelector('#github-repos');
+const projectsSection = document.querySelector('#github');
 let projectsLoaded = false;
 
 const createCard = (repo) => {
@@ -23,7 +23,7 @@ const createCard = (repo) => {
 const loadGitHubProjects = async () => {
   if (!projectsContainer) return;
   projectsLoaded = true;
-  projectsContainer.innerHTML = '<p class="muted">Loading GitHub projects...</p>';
+  projectsContainer.innerHTML = '<p class="muted">Loading GitHub repositories...</p>';
 
   try {
     const response = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=6`);

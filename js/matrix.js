@@ -29,7 +29,7 @@
     ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
     ctx.fillRect(0, 0, width, height);
 
-    ctx.fillStyle = 'rgba(0, 255, 156, 0.35)';
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.35)';
     ctx.font = `${fontSize}px 'SFMono-Regular', Consolas, monospace`;
 
     for (let i = 0; i < drops.length; i++) {

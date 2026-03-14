@@ -15,11 +15,13 @@
   <header class="navbar">
     <div class="nav-brand">GS</div>
     <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
+      <a href="#hero">Home</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#github">GitHub</a>
+      <a href="#cyber-lab">Cyber Lab</a>
       <a href="#learning-journey">Journey</a>
-      <a href="blog.html">Blog</a>
+      <a href="#documents">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="nav-toggle" aria-label="Toggle navigation">
@@ -28,29 +30,22 @@
   </header>
 
   <main>
-    <section class="hero reveal slide-up" id="hero">
+    <section class="hero reveal slide-up fullpage" id="hero">
       <canvas id="matrix-canvas" aria-hidden="true"></canvas>
       <div class="hero-overlay"></div>
+      <div class="hero-glow"></div>
       <div class="hero-container">
         <div class="hero-left">
           <div class="hero-id">
-            <img class="profile-img" src="https://via.placeholder.com/96" alt="Profile placeholder">
             <div>
               <p class="eyebrow">Hello, I'm</p>
               <h1>Gurshan Singh</h1>
-              <h2>B.Tech IT Student | Aspiring Cybersecurity Engineer</h2>
+              <h2>Aspiring Cybersecurity Engineer</h2>
+              <p class="hero-subtitle">B.Tech IT Student | GNDEC Ludhiana</p>
             </div>
           </div>
-          <p class="hero-desc">Passionate about cybersecurity, Linux, and building practical tech projects while studying at GNDEC Ludhiana.</p>
-          <div class="cta-group">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn ghost" href="#contact">Contact Me</a>
-          </div>
-          <div class="social-buttons">
-            <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn ghost" href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn primary" href="mailto:khalsa12975@gmail.com">Contact</a>
-          </div>
+          <p class="hero-desc">Building cybersecurity tools, exploring Linux systems, and developing practical software projects.</p>
+          <p class="hero-typing">Currently: <span class="typing" aria-live="polite"></span></p>
         </div>
         <div class="hero-right">
           <div class="terminal" aria-live="polite">
@@ -61,275 +56,156 @@
               <span class="terminal-title">~/cyber/intro.sh</span>
             </div>
             <div class="terminal-body">
-              <div id="terminal-output"></div><span class="terminal-cursor" aria-hidden="true"></span>
+              <div class="mini-terminal" id="hero-terminal-output"></div>
             </div>
           </div>
         </div>
       </div>
+      <div class="hero-cta-footer">
+        <div class="hero-actions">
+          <a class="btn primary" href="#skills">View Skills</a>
+          <a class="btn ghost" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#cyber-lab">Cyber Lab</a>
+          <a class="btn ghost" href="#github">GitHub</a>
+          <a class="btn primary" href="#contact">Contact</a>
+        </div>
+        <div class="hero-socials">
+          <a class="social-link" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+          <a class="social-link" href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          <a class="social-link" href="mailto:khalsa12975@gmail.com" aria-label="Email">Email</a>
+        </div>
+      </div>
+      <button class="scroll-indicator" type="button" data-target="#skills">↓ Explore Portfolio</button>
     </section>
 
-    <section class="section reveal fade" id="about">
+    <section class="section reveal fade fullpage" id="skills">
       <div class="section-header">
-        <p class="eyebrow">About</p>
-        <h3>Curious mind, code-first approach.</h3>
-        <p class="section-desc">Focused on building reliable software, experimenting with systems, and sharing what I learn.</p>
+        <p class="eyebrow">Profession + Skills</p>
+        <h3>Security-focused development toolkit</h3>
+        <p class="section-desc">Tap a card to expand details.</p>
       </div>
-    </section>
-
-    <section class="section reveal fade" id="skills">
-      <div class="section-header">
-        <p class="eyebrow">Skills & Tools</p>
-        <h3>Focused on security-minded development</h3>
-      </div>
-      <div class="skills-grid grouped">
-        <div class="skill-card">
-          <h4>Languages</h4>
-          <div class="chip-row">
-            <span class="chip">Python</span>
-            <span class="chip">C++</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h4>Tools</h4>
-          <div class="chip-row">
-            <span class="chip">Linux</span>
-            <span class="chip">VS Code</span>
-            <span class="chip">OpenAI Codex</span>
-            <span class="chip">Git</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h4>Technologies</h4>
-          <div class="chip-row">
-            <span class="chip">Cybersecurity</span>
-            <span class="chip">Web Fundamentals</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal fade" id="learning">
-      <div class="section-header">
-        <p class="eyebrow">Currently Learning</p>
-        <h3>Sharpening fundamentals every day</h3>
-        <ul class="learning-list">
-          <li>Python programming</li>
-          <li>C++ fundamentals</li>
-          <li>Cybersecurity basics</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section reveal fade" id="skills-progress">
-      <div class="section-header">
-        <p class="eyebrow">Skills</p>
-        <h3>Progress so far</h3>
-      </div>
-      <div class="progress-grid">
-        <div class="progress-item">
-          <div class="progress-label">
-            <span>Python</span><span>70%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" data-target="70"></div></div>
-        </div>
-        <div class="progress-item">
-          <div class="progress-label">
-            <span>C++</span><span>60%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" data-target="60"></div></div>
-        </div>
-        <div class="progress-item">
-          <div class="progress-label">
-            <span>Linux</span><span>75%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" data-target="75"></div></div>
-        </div>
-        <div class="progress-item">
-          <div class="progress-label">
-            <span>Cybersecurity</span><span>50%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" data-target="50"></div></div>
-        </div>
-        <div class="progress-item">
-          <div class="progress-label">
-            <span>Web Development</span><span>65%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" data-target="65"></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal fade" id="cyber-tools">
-      <div class="section-header">
-        <p class="eyebrow">Cybersecurity Tools</p>
-        <h3>Stack I'm using and exploring</h3>
-      </div>
-      <div class="tools-grid">
-        <article class="tool-card">
+      <div class="skills-cards">
+        <button class="skill-card expand-card" type="button" aria-expanded="false">
           <h4>Programming</h4>
-          <div class="chip-row">
-            <span class="chip">Python</span>
-            <span class="chip">C++</span>
-          </div>
-        </article>
-        <article class="tool-card">
-          <h4>Operating System</h4>
-          <div class="chip-row">
-            <span class="chip">Linux</span>
-          </div>
-        </article>
-        <article class="tool-card">
-          <h4>Development Tools</h4>
-          <div class="chip-row">
-            <span class="chip">VS Code</span>
-            <span class="chip">OpenAI Codex</span>
-            <span class="chip">Git</span>
-          </div>
-        </article>
-        <article class="tool-card">
-          <h4>Cybersecurity Interest Areas</h4>
-          <div class="chip-row">
-            <span class="chip">Network Security</span>
-            <span class="chip">Ethical Hacking</span>
-            <span class="chip">System Security</span>
-          </div>
-        </article>
+          <p class="skill-tags">Python • C++</p>
+          <p class="skill-desc">Building scripts, automations, and systems-level tooling with a security mindset.</p>
+        </button>
+        <button class="skill-card expand-card" type="button" aria-expanded="false">
+          <h4>Tools</h4>
+          <p class="skill-tags">Linux • Git • VS Code</p>
+          <p class="skill-desc">Daily workflow centered on Linux, version control, and fast iteration.</p>
+        </button>
+        <button class="skill-card expand-card" type="button" aria-expanded="false">
+          <h4>Web Development</h4>
+          <p class="skill-tags">HTML • CSS • JavaScript</p>
+          <p class="skill-desc">Creating modern, responsive interfaces with clean structure and performance in mind.</p>
+        </button>
+        <button class="skill-card expand-card" type="button" aria-expanded="false">
+          <h4>Cybersecurity (learning)</h4>
+          <p class="skill-tags">Network Security • Linux Hardening</p>
+          <p class="skill-desc">Learning core security concepts, safe tooling, and defensive best practices.</p>
+        </button>
       </div>
     </section>
 
-    <section class="section reveal fade" id="tools-i-use">
+    <section class="section reveal fade fullpage" id="projects">
       <div class="section-header">
-        <p class="eyebrow">Tools I Use</p>
-        <h3>Everyday utilities and platforms</h3>
+        <p class="eyebrow">Projects</p>
+        <h3>Selected work</h3>
       </div>
-      <div class="tools-grid cards">
-        <article class="tool-card icon-card">
-          <div class="tool-icon">🐧</div>
-          <div>
-            <h4>Linux</h4>
-            <p class="tool-desc">My primary development environment.</p>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-meta">
+            <h4>Portfolio Platform</h4>
+            <p>Responsive personal site with cyber-themed interactions and dynamic content.</p>
+            <p class="tech">HTML · CSS · JavaScript</p>
+          </div>
+          <div class="project-actions">
+            <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn ghost" href="#" aria-disabled="true">Demo</a>
           </div>
         </article>
-        <article class="tool-card icon-card">
-          <div class="tool-icon">🐍</div>
-          <div>
-            <h4>Python</h4>
-            <p class="tool-desc">For scripting, automation, and quick prototypes.</p>
+        <article class="project-card">
+          <div class="project-meta">
+            <h4>System Monitor</h4>
+            <p>Tracks CPU, memory, and system health with a clean dashboard.</p>
+            <p class="tech">Python · Linux</p>
+          </div>
+          <div class="project-actions">
+            <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
           </div>
         </article>
-        <article class="tool-card icon-card">
-          <div class="tool-icon">⚙️</div>
-          <div>
-            <h4>C++</h4>
-            <p class="tool-desc">For performant, system-level problem solving.</p>
+        <article class="project-card">
+          <div class="project-meta">
+            <h4>CLI Toolkit</h4>
+            <p>Small productivity tools for repeatable command-line workflows.</p>
+            <p class="tech">C++ · Bash</p>
           </div>
-        </article>
-        <article class="tool-card icon-card">
-          <div class="tool-icon">🔧</div>
-          <div>
-            <h4>Git</h4>
-            <p class="tool-desc">Version control and collaboration.</p>
-          </div>
-        </article>
-        <article class="tool-card icon-card">
-          <div class="tool-icon">🛰️</div>
-          <div>
-            <h4>Nmap</h4>
-            <p class="tool-desc">Network scanning and reconnaissance practice.</p>
-          </div>
-        </article>
-        <article class="tool-card icon-card">
-          <div class="tool-icon">📡</div>
-          <div>
-            <h4>Wireshark</h4>
-            <p class="tool-desc">Packet analysis to understand traffic flows.</p>
-          </div>
-        </article>
-        <article class="tool-card icon-card">
-          <div class="tool-icon">🖥️</div>
-          <div>
-            <h4>VS Code</h4>
-            <p class="tool-desc">Lightweight editor with extensions for everything.</p>
+          <div class="project-actions">
+            <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section reveal fade" id="tools-technologies">
+    <section class="section reveal fade fullpage" id="github">
       <div class="section-header">
-        <p class="eyebrow">Tools & Technologies</p>
-        <h3>Core stack I work with</h3>
+        <p class="eyebrow">GitHub Integration</p>
+        <h3>Live activity and repositories</h3>
+        <p class="section-desc">Profile: <a href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">github.com/gurshansingh2006</a></p>
       </div>
-      <div class="tools-grid cards">
-        <article class="tool-card icon-card">
-          <div class="tool-icon">🐧</div>
-          <div>
-            <h4>Linux</h4>
-            <p class="tool-desc">My primary development environment.</p>
+      <div class="github-grid">
+        <div class="github-panel">
+          <h4>Latest Repositories</h4>
+          <div class="projects-grid" id="github-repos">
+            <p class="muted">Loading repositories...</p>
           </div>
-        </article>
-        <article class="tool-card icon-card">
-          <div class="tool-icon">🐍</div>
-          <div>
-            <h4>Python</h4>
-            <p class="tool-desc">For scripting, automation, and quick prototypes.</p>
+        </div>
+        <div class="github-panel">
+          <h4>Contribution Graph</h4>
+          <div class="github-chart">
+            <img src="https://ghchart.rshah.org/gurshansingh2006" alt="GitHub contribution graph for gurshansingh2006">
           </div>
-        </article>
-        <article class="tool-card icon-card">
-          <div class="tool-icon">⚙️</div>
-          <div>
-            <h4>C++</h4>
-            <p class="tool-desc">For efficient, system-level programming.</p>
-          </div>
-        </article>
-        <article class="tool-card icon-card">
-          <div class="tool-icon">🔧</div>
-          <div>
-            <h4>Git</h4>
-            <p class="tool-desc">Version control for clean, trackable progress.</p>
-          </div>
-        </article>
-        <article class="tool-card icon-card">
-          <div class="tool-icon">🖥️</div>
-          <div>
-            <h4>VS Code</h4>
-            <p class="tool-desc">A fast editor with the extensions I rely on.</p>
-          </div>
-        </article>
+          <a class="btn primary" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">View Full GitHub</a>
+        </div>
       </div>
     </section>
 
-    <section class="section reveal fade" id="cyber-lab">
+    <section class="section reveal fade fullpage" id="cyber-lab">
       <div class="section-header">
         <p class="eyebrow">Cyber Lab</p>
-        <h3>Cybersecurity projects and experiments</h3>
+        <h3>Security-focused builds</h3>
       </div>
       <div class="projects-grid">
         <article class="project-card">
           <div class="project-meta">
             <h4>Password Strength Checker</h4>
-            <p>Evaluates password strength with security best practices and feedback.</p>
+            <p>Evaluates password strength with actionable feedback.</p>
+            <p class="tech">Python · Security</p>
           </div>
           <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
         </article>
         <article class="project-card">
           <div class="project-meta">
             <h4>Port Scanner</h4>
-            <p>Scans target ports to identify open services and potential exposures.</p>
+            <p>Scans target ports to identify open services.</p>
+            <p class="tech">Python · Networking</p>
           </div>
           <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
         </article>
         <article class="project-card">
           <div class="project-meta">
             <h4>Network Monitor</h4>
-            <p>Monitors traffic activity and summarizes network behavior.</p>
+            <p>Summarizes traffic patterns and activity signals.</p>
+            <p class="tech">Linux · Wireshark</p>
           </div>
           <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
         </article>
         <article class="project-card">
           <div class="project-meta">
             <h4>Encryption Tool</h4>
-            <p>Encrypts and decrypts data using standard cryptographic workflows.</p>
+            <p>Encrypts and decrypts data with standard ciphers.</p>
+            <p class="tech">C++ · Crypto</p>
           </div>
           <a class="btn ghost" href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
         </article>
@@ -340,155 +216,97 @@
       </div>
     </section>
 
-    <section class="section reveal fade" id="learning-journey">
+    <section class="section reveal fade fullpage" id="learning-journey">
       <div class="section-header">
-        <p class="eyebrow">My Learning Journey</p>
-        <h3>Milestones in cybersecurity and IT</h3>
+        <p class="eyebrow">Learning Journey</p>
+        <h3>Timeline of growth</h3>
       </div>
       <div class="journey-timeline">
-        <div class="journey-item">
+        <div class="journey-item reveal fade">
           <div class="journey-dot"></div>
           <div class="journey-text">
             <p class="journey-year">2023</p>
-            <p class="journey-desc">Completed Matriculation</p>
+            <p class="journey-desc">Matriculation</p>
           </div>
         </div>
-        <div class="journey-item">
+        <div class="journey-item reveal fade">
           <div class="journey-dot"></div>
           <div class="journey-text">
             <p class="journey-year">2025</p>
             <p class="journey-desc">Completed 12th</p>
           </div>
         </div>
-        <div class="journey-item">
+        <div class="journey-item reveal fade">
           <div class="journey-dot"></div>
           <div class="journey-text">
-            <p class="journey-year">2025</p>
-            <p class="journey-desc">Started B.Tech IT at GNDEC Ludhiana</p>
+            <p class="journey-year">2025–2029</p>
+            <p class="journey-desc">B.Tech IT at GNDEC Ludhiana</p>
           </div>
         </div>
-        <div class="journey-item">
+        <div class="journey-item reveal fade">
           <div class="journey-dot"></div>
           <div class="journey-text">
-            <p class="journey-year">2025</p>
-            <p class="journey-desc">Learning Python and C++</p>
-          </div>
-        </div>
-        <div class="journey-item future">
-          <div class="journey-dot"></div>
-          <div class="journey-text">
-            <p class="journey-year">Future</p>
-            <p class="journey-desc">Cybersecurity specialization</p>
+            <p class="journey-year">2026</p>
+            <p class="journey-desc">Learning Python and Cybersecurity</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section reveal fade" id="learning-blog">
+    <section class="section reveal fade fullpage" id="documents">
       <div class="section-header">
-        <p class="eyebrow">Learning Blog</p>
-        <h3>Sharing what I'm learning</h3>
+        <p class="eyebrow">Resume / Documents</p>
+        <h3>Credentials and proof of work</h3>
       </div>
-      <div class="blog-grid">
-        <article class="blog-card">
-          <h4>My Journey Into Linux</h4>
-          <p class="blog-desc">From first boot to customizing the shell—notes on how Linux became my daily driver.</p>
-          <a class="blog-link" href="#" aria-label="Read more about My Journey Into Linux">Read more →</a>
-        </article>
-        <article class="blog-card">
-          <h4>How I Started Learning Python</h4>
-          <p class="blog-desc">Why I picked Python, resources I used, and small scripts that helped me practice.</p>
-          <a class="blog-link" href="#" aria-label="Read more about How I Started Learning Python">Read more →</a>
-        </article>
-        <article class="blog-card">
-          <h4>Understanding Basic Networking</h4>
-          <p class="blog-desc">Breaking down IPs, ports, and protocols—foundations for security and troubleshooting.</p>
-          <a class="blog-link" href="#" aria-label="Read more about Understanding Basic Networking">Read more →</a>
-        </article>
+      <div class="documents-grid">
+        <div class="document-card">
+          <h4>Resume</h4>
+          <p class="section-desc">Download the latest resume in PDF format.</p>
+          <a class="btn primary" href="#" aria-disabled="true">Download Resume</a>
+        </div>
+        <div class="document-card">
+          <h4>Certificates</h4>
+          <p class="section-desc">Add your cybersecurity and programming certificates here.</p>
+          <div class="document-placeholder">Certificate previews coming soon.</div>
+        </div>
+        <div class="document-card">
+          <h4>Document Preview</h4>
+          <p class="section-desc">Embed or link to documents once ready.</p>
+          <div class="document-placeholder">Preview placeholder</div>
+        </div>
       </div>
     </section>
 
-    <section class="section reveal fade" id="projects">
+    <section class="section contact reveal slide-up fullpage" id="contact">
       <div class="section-header">
-        <p class="eyebrow">Projects</p>
-        <h3>Recent work</h3>
+        <p class="eyebrow">Contact</p>
+        <h3>Let’s collaborate</h3>
       </div>
-      <div class="projects-grid" id="projects-grid">
-        <p class="muted">Projects will appear here as I continue building and learning.</p>
-      </div>
-    </section>
-
-    <section class="section reveal fade" id="github-activity">
-      <div class="section-header">
-        <p class="eyebrow">GITHUB ACTIVITY</p>
-        <h3>Contribution Graph</h3>
-      </div>
-      <div class="github-chart">
-        <img src="https://ghchart.rshah.org/gurshansingh2006" alt="GitHub contribution graph for gurshansingh2006">
-      </div>
-    </section>
-
-    <section class="section" id="cyber-terminal">
-      <div class="cyber-terminal">
-        <div class="bot-title">GS_BOT</div>
-        <div id="terminal-screen" class="terminal-screen" aria-live="polite"></div>
-        <form id="terminal-form" class="terminal-input-row" autocomplete="off">
-          <span class="prompt">visitor@portfolio:~$</span>
-          <input id="terminal-input" type="text" name="command" aria-label="Terminal input" />
-        </form>
-      </div>
-    </section>
-
-    <section class="section reveal slide-up" id="journey">
-      <div class="section-header">
-        <p class="eyebrow">Developer Journey</p>
-        <h3>Milestones on my path</h3>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="dot"></div>
-          <div>
-            <p class="timeline-year">2023</p>
-            <p class="timeline-desc">Completed Matriculation.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="dot"></div>
-          <div>
-            <p class="timeline-year">2025</p>
-            <p class="timeline-desc">Completed 12th.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="dot"></div>
-          <div>
-            <p class="timeline-year">2025 – 2029</p>
-            <p class="timeline-desc">B.Tech in Information Technology<br>Guru Nanak Dev Engineering College, Ludhiana.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="dot future"></div>
-          <div>
-            <p class="timeline-year">Future</p>
-            <p class="timeline-desc">Internship and advanced cybersecurity projects.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact reveal slide-up" id="contact">
-      <div class="contact-card">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h3>Let’s build something together</h3>
-          <p class="section-desc">Reach out for collaborations, internships, or just to say hello.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="section-desc">Reach out for collaborations, internships, or cybersecurity discussions.</p>
           <div class="contact-details">
-            <span>📞 +91 7009115802</span>
-            <span>✉️ <a href="mailto:khalsa12975@gmail.com">khalsa12975@gmail.com</a></span>
-            <span>🔗 <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></span>
+            <span>Phone: +91 7009115802</span>
+            <span>Email: <a href="mailto:khalsa12975@gmail.com">khalsa12975@gmail.com</a></span>
+            <span>LinkedIn: <a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com</a></span>
+            <span>GitHub: <a href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">github.com/gurshansingh2006</a></span>
           </div>
         </div>
-        <a class="btn primary" href="mailto:khalsa12975@gmail.com">Email Me</a>
+        <form class="contact-form">
+          <div class="form-row">
+            <label for="contact-name">Name</label>
+            <input id="contact-name" type="text" name="name" placeholder="Your name">
+          </div>
+          <div class="form-row">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" type="email" name="email" placeholder="you@email.com">
+          </div>
+          <div class="form-row">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="4" placeholder="Write your message..."></textarea>
+          </div>
+          <button class="btn primary" type="submit">Send Message</button>
+        </form>
       </div>
     </section>
   </main>
@@ -496,10 +314,26 @@
   <footer class="footer">
     <p>© 2026 Gurshan Singh</p>
     <div class="footer-links">
-      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/gurshansingh2006" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </footer>
+
+  <div id="cyber-terminal" class="bot-widget">
+    <button class="bot-opener" type="button" aria-expanded="false" aria-controls="bot-panel">
+      <span class="bot-logo">GS</span>
+      <span class="bot-label">GS_BOT</span>
+    </button>
+    <div class="cyber-terminal bot-panel" id="bot-panel" hidden>
+      <div class="bot-title">GS_BOT</div>
+      <div id="terminal-screen" class="terminal-screen" aria-live="polite"></div>
+      <form id="terminal-form" class="terminal-input-row" autocomplete="off">
+        <span class="prompt">visitor@portfolio:~$</span>
+        <input id="terminal-input" type="text" name="command" aria-label="Terminal input" />
+        <button class="chat-send" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
 
   <script src="js/matrix.js" defer></script>
   <script src="js/projects.js" defer></script>

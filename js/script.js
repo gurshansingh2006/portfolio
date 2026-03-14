@@ -8,27 +8,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelector('.nav-links');
   const toggle = document.querySelector('.nav-toggle');
   const typingEl = document.querySelector('.typing');
-  const roles = ['B.Tech IT Student', 'Cybersecurity Enthusiast', 'Python Learner', 'C++ Programmer', 'Linux User'];
-  const terminalLines = [
-    '> initializing system...',
-    '> loading profile...',
-    '> name: Gurshan Singh',
-    '> role: Cybersecurity Enthusiast',
-    '> role: B.Tech IT Student',
-    '> role: Python Learner',
-    '> role: C++ Programmer',
-    '> role: Linux User',
-    '> system ready.'
-  ];
+  const roles = ['Cybersecurity Enthusiast', 'Python Developer', 'Linux Explorer', 'Future Security Engineer'];
   const terminalOutput = document.querySelector('#terminal-output');
   const terminalCursor = document.querySelector('.terminal-cursor');
   const matrixCanvas = document.querySelector('#matrix-canvas');
+  const heroTerminalOutput = document.querySelector('#hero-terminal-output');
   const terminalForm = document.querySelector('#terminal-form');
   const terminalInput = document.querySelector('#terminal-input');
   const terminalScreen = document.querySelector('#terminal-screen');
   const progressFills = document.querySelectorAll('.progress-fill');
   const scanButton = document.querySelector('#run-scan');
   const scanOutput = document.querySelector('#scan-output');
+  const fullpageSections = Array.from(document.querySelectorAll('.fullpage'));
+  const isMobile = window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(pointer: coarse)').matches;
+  let currentIndex = 0;
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const botOpener = document.querySelector('.bot-opener');
+  const botPanel = document.querySelector('#bot-panel');
+  const closeBot = () => {
+    if (!botPanel || !botOpener) return;
+    if (botPanel.hasAttribute('hidden')) return;
+    botPanel.setAttribute('hidden', '');
+    botOpener.setAttribute('aria-expanded', 'false');
+    botOpener.closest('.bot-widget')?.classList.remove('open');
+  };
 
   // Smooth scroll for internal links
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -38,10 +41,43 @@ document.addEventListener('DOMContentLoaded', () => {
       if (targetEl) {
         e.preventDefault();
         targetEl.scrollIntoView({ behavior: 'smooth' });
+        const idx = fullpageSections.indexOf(targetEl);
+        if (idx >= 0) currentIndex = idx;
+        closeBot();
         navLinks?.classList.remove('open');
       }
     });
   });
+
+  // Full-page wheel navigation (desktop only)
+  if (!isMobile && fullpageSections.length > 0) {
+    let isAnimating = false;
+
+    const goToIndex = (nextIndex) => {
+      if (nextIndex < 0 || nextIndex >= fullpageSections.length) return;
+      isAnimating = true;
+      currentIndex = nextIndex;
+      fullpageSections[currentIndex].scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        isAnimating = false;
+      }, 800);
+    };
+
+    window.addEventListener('wheel', (e) => {
+      if (isAnimating) return;
+      if (Math.abs(e.deltaY) < 30) return;
+      const scrollBlock = e.target.closest('.terminal, .cyber-terminal, .terminal-screen, .scan-terminal, .bot-panel');
+      if (scrollBlock) return;
+      e.preventDefault();
+      if (e.deltaY > 0) {
+        closeBot();
+        goToIndex(currentIndex + 1);
+      } else {
+        closeBot();
+        goToIndex(currentIndex - 1);
+      }
+    }, { passive: false });
+  }
 
   // Mobile nav toggle
   toggle?.addEventListener('click', () => {
@@ -79,22 +115,80 @@ document.addEventListener('DOMContentLoaded', () => {
     type();
   }
 
-  // Terminal intro lines
-  if (terminalOutput) {
+  // Scroll indicator
+  scrollIndicator?.addEventListener('click', () => {
+    const target = scrollIndicator.getAttribute('data-target');
+    if (target) document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+    closeBot();
+  });
+
+  // GS_BOT opener toggle
+  if (botOpener && botPanel) {
+    botOpener.addEventListener('click', () => {
+      const isOpen = !botPanel.hasAttribute('hidden');
+      if (isOpen) {
+        botPanel.setAttribute('hidden', '');
+        botOpener.setAttribute('aria-expanded', 'false');
+        botOpener.closest('.bot-widget')?.classList.remove('open');
+      } else {
+        botPanel.removeAttribute('hidden');
+        botOpener.setAttribute('aria-expanded', 'true');
+        botOpener.closest('.bot-widget')?.classList.add('open');
+        terminalInput?.focus();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      const isOpen = !botPanel.hasAttribute('hidden');
+      if (!isOpen) return;
+      const target = e.target;
+      if (botPanel.contains(target) || botOpener.contains(target)) return;
+      closeBot();
+      botOpener.closest('.bot-widget')?.classList.remove('open');
+    });
+  }
+
+  // Mini hero terminal animation
+  if (heroTerminalOutput) {
+    const heroLines = [
+      '> whoami',
+      'Gurshan Singh',
+      '',
+      '> profession',
+      'Aspiring Cybersecurity Engineer',
+      '',
+      '> focus',
+      'Linux, security tooling, and practical projects',
+      '',
+      '> skills',
+      'Python, Linux, Web Development'
+    ];
+    heroTerminalOutput.textContent = '';
     let lineIndex = 0;
-    const delay = 650;
-    const addLine = () => {
-      if (lineIndex >= terminalLines.length) {
-        terminalCursor?.classList.add('idle');
+    let charIndex = 0;
+    let currentLine = '';
+
+    const typeLine = () => {
+      if (lineIndex >= heroLines.length) return;
+      const fullLine = heroLines[lineIndex];
+      const lineText = fullLine === '' ? ' ' : fullLine;
+      currentLine = lineText.slice(0, charIndex + 1);
+      heroTerminalOutput.textContent = heroLines
+        .slice(0, lineIndex)
+        .map((line) => (line === '' ? ' ' : line))
+        .join('\n') + (lineIndex > 0 ? '\n' : '') + currentLine;
+      charIndex += 1;
+
+      if (charIndex === lineText.length) {
+        lineIndex += 1;
+        charIndex = 0;
+        setTimeout(typeLine, 300);
         return;
       }
-      const lineEl = document.createElement('div');
-      lineEl.textContent = terminalLines[lineIndex];
-      terminalOutput.appendChild(lineEl);
-      lineIndex += 1;
-      setTimeout(addLine, delay);
+      setTimeout(typeLine, 45);
     };
-    setTimeout(addLine, 400);
+
+    typeLine();
   }
 
   // Scroll reveal animations
@@ -116,6 +210,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   observeReveals();
   window.observeReveals = observeReveals;
+
+  // Expandable skill cards
+  document.querySelectorAll('.expand-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const expanded = card.classList.toggle('expanded');
+      card.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    });
+  });
 
   // Animate skill progress bars on reveal
   if (progressFills.length) {
@@ -201,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const navActions = {
       projects: () => scrollToSection('#projects'),
-      tools: () => scrollToSection('#tools-technologies'),
+      tools: () => scrollToSection('#skills'),
       journey: () => scrollToSection('#learning-journey'),
       contact: () => scrollToSection('#contact'),
       github: () => window.open('https://github.com/gurshansingh2006', '_blank', 'noopener')
